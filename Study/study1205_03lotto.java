@@ -27,7 +27,11 @@ public class study1205_lotto {
 			}
 		}
 
-		////여기다 부족한거 올리기
+		for (int i = 0; i < lottoNumberArr.length; i++) {
+			int lottoNumber = lottoNumberArr[i];
+
+			System.out.println(lottoNumber);
+		} //부족부분
 
 
 	}
