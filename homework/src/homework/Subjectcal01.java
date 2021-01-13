@@ -26,7 +26,7 @@ public class Subjectcal01 {
 			throw new Exception("과목정보파일정의가 이상합니다.");
 		}
 
-		String gradeFiePath = "C:\\Temp\\grade.tsv";
+		String gradeFiePath = "C:\\Users\\\\jhoju\\Documents\\git\\grade.tsv";
 
 		try {
 			List<String> gradeList = fileUtil.readFile(gradeFiePath);

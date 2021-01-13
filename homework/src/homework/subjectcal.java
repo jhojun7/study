@@ -20,7 +20,7 @@ public class Subjectcal {
 	private void main() throws Exception {
 		FileUtl fileUtil = new FileUtl();
 
-		List<String> fileContents = fileUtil.readFile("C:\\Temp\\subject_master.tsv");
+		List<String> fileContents = fileUtil.readFile("C:\\Users\\jhoju\\Documents\\git\\subject_master.tsv");
 
 		if (fileContents.size() != 1) {
 			throw new Exception("과목정보파일정의가 이상합니다.");
