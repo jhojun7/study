@@ -1,7 +1,9 @@
 package homework;
 
 import java.io.FileNotFoundException;
+//import java.util.ArrayList;
 import java.util.Arrays;
+//import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,7 +19,7 @@ public class Subjectcal01 {
 		new Subjectcal01();
 	}
 
-	private void main() throws Exception {
+	private void main() throws Exception { // 예외처리 오류처리
 		FileUtl fileUtil = new FileUtl();
 
 		List<String> fileContents = fileUtil.readFile("C:\\Users\\jhoju\\Documents\\git\\subject_master.tsv");
@@ -63,6 +65,7 @@ public class Subjectcal01 {
 					map.put(subjectList.get(i), grade);
 				}
 				subjectMap.put(name, map);
+				int headcount = subjectMap.size(); // 석차 구할때 필요할까 싶어 만들어둠
 			}
 		}
 
@@ -73,9 +76,13 @@ public class Subjectcal01 {
 				total += Integer.parseInt(map.get(k2));
 			}
 
+			double ave = total / count ;
+			String Ave = String.format("%.2f", ave); // 평균값을 더블로 받고, 소수 두번째자리까지 나타내기
 			map.put("total", total + "");
-			map.put("average", (total / count) + "");
+			map.put("average", Ave + "");
 			map.put("grade", getGrade(total / count));
+			map.put("rank", subjectMap.size() + ""); // 석차 못구해서 인원수로 칸 채워둠
+
 		}
 
 		StringBuilder sb = new StringBuilder();
@@ -86,6 +93,8 @@ public class Subjectcal01 {
 		sb.append("학점");
 		sb.append("\t");
 		sb.append("평균");
+		sb.append("\t\t");
+		sb.append("석차");
 
 		sb.append("\r\n");
 
@@ -104,8 +113,23 @@ public class Subjectcal01 {
 			sb.append("\t");
 
 			sb.append(map.get("average"));
+			sb.append("\t");
+
+			sb.append(map.get("rank"));
+			sb.append("\r\n");
+			}
+
+		sb.append("각 과목별 최고점수");
+		sb.append("\r\n");
+
+		for (int i = 0; i < count; i++) {
+			sb.append(subjectList.get(i));
+			sb.append(" : ");
 			sb.append("\r\n");
 		}
+
+
+
 
 
 		System.out.println(sb.toString());
@@ -122,7 +146,7 @@ public class Subjectcal01 {
 		}
 
 		try {
-			if(num < 0 || num > 100) {
+			if(num < 0 || num > 100) { // 입력숫자는 0부터 100까지
 				throw new Exception();
 			}
 
