@@ -14,4 +14,4 @@ public class eight {
 		}
 		System.out.println(eight);
 	}
-}
+}////// for문 하나로 범위만들기
