@@ -15,4 +15,4 @@ public class eight {
 		System.out.println(eight);
 	}
 }////// for문 하나로 범위만들기
-//순서 재정렬
+//순서 재정렬 과제하기
